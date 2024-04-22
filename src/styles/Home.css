@@ -1,0 +1,38 @@
+.landing-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, blue, white);
+    padding: 0 10%;
+}
+
+.content-left {
+    text-align: left;
+}
+
+.download-button, .login-button {
+    display: block;
+    margin: 10px 0;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.download-button {
+    background-color: #007BFF;
+    color: white;
+}
+
+.login-button {
+    background-color: transparent;
+    color: black;
+    border: 2px solid black;
+}
+
+.content-right img {
+    max-width: 300px; /* Adjust size as needed */
+    height: auto;
+}

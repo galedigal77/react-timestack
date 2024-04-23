@@ -1,13 +1,18 @@
-import React from 'react';
-import Login from './components/Login';
-import Home from './components/Home';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from "./HomePage";
+import Login from "./components/Login";
+import Register from "./components/Register";
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div>
-      <Login />
-      <Home />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
+    </Router>
   );
 }
 

@@ -1,0 +1,40 @@
+.register-container {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.register-logo {
+    max-width: 150px;
+    margin-bottom: 40px;
+}
+
+.register-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.register-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4E73DF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.register-form button:hover {
+    background-color: #0056b3;
+}
+
+.form-footer {
+    margin-top: 20px;
+    font-size: 10px;
+    text-align: center;
+}
+

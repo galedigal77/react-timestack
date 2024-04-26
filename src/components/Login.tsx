@@ -33,6 +33,9 @@ const Login: React.FC = () => {
                 <button type="submit">Log In</button>
             </form>
             <p className="form-footer">
+                <Link to="/register">Forgot Password</Link>
+            </p>
+            <p className="form-footer">
                 No Account Yet? <Link to="/register">Create one.</Link>
             </p>
         </div>

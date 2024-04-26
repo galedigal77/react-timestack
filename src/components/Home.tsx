@@ -23,7 +23,7 @@ const Home: React.FC = () => {
           className="login-button"
           onClick={() => {
             console.log("Trying to sign in...");
-            navigate("/login"); 
+            navigate("/login");
           }}
         >
           Sign In

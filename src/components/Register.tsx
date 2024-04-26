@@ -1,16 +1,48 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; 
-import '../styles/Register.css';  
+import { useState, FormEvent } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios'; 
+import '../styles/Register.css';
 
-const Register: React.FC = () => {
+const Register = () => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState(''); 
 
-    const handleSubmit = (event: React.FormEvent) => {
+    const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        console.log('Registering:', firstName, lastName, email, password);
+
+        // Check if passwords match
+        if (password !== confirmPassword) {
+            alert('Passwords do not match!');
+            return;
+        }
+
+        // User data to be sent to the backend
+        const userData = {
+            first_name: firstName,
+            last_name: lastName,
+            email: email,
+            password: password
+        };
+
+        const apiUrl = process.env.REACT_APP_API_URL + '/api/register';
+
+        try {
+            // Make the POST request to the register endpoint
+            const response = await axios.post(apiUrl, userData);
+            console.log('Registration successful:', response.data);
+
+            // Handle actions after successful registration
+            // e.g., navigate to login page, show success message, etc.
+        } catch (error) {
+            if (error instanceof Error) {
+                console.error('Error message:', error.message);
+            } else {
+                console.error('An unknown error occurred:', error);
+            }
+        }
     };
 
     return (
@@ -44,6 +76,13 @@ const Register: React.FC = () => {
                     placeholder="Password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                    required
+                />
+                <input
+                    type="password"
+                    placeholder="Confirm Password"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
                     required
                 />
                 <button type="submit">Register</button>
